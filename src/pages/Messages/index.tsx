@@ -1,10 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { CloseSVG } from "../../assets/images";
-import { Img, Input } from "../../components";
-import { Text } from "components/Text1";
-import { Button } from "components/Button1";
-import { Heading } from "components/Heading1";
+import { Button, Img, Input, Text, Heading } from "../../components";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
 
 export default function MessagesPage() {

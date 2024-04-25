@@ -1,9 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Img } from "../../components";
-import { Text } from "components/Text1";
-import { Button } from "components/Button1";
-import { Heading } from "components/Heading1";
+import { Text, Img, Button, Heading } from "../../components";
 import Sidebar1 from "../../components/Sidebar1";
 
 export default function MessagesemptyPage() {

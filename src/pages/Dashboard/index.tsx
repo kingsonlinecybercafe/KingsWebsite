@@ -33,11 +33,11 @@ export default function DashboardPage() {
 
       {/* dashboard layout section */}
       <div className="w-full overflow-auto bg-white-A700">
-        <div className="flex flex-col items-end self-end">
+        <div className="flex flex-col relative items-end self-end">
           {/* header section */}
           <header className="flex w-[81%] flex-col items-center gap-3 md:w-full md:p-5">
             <div className="flex w-[97%] items-start justify-between gap-5 md:w-full md:flex-col">
-              <div className="flex w-[55%] items-center justify-between gap-5 md:w-full">
+              <div className="flex mt-5 w-[55%] items-center justify-between gap-5 md:w-full">
                 <div className="flex flex-col items-start">
                   <Heading as="h5">Dashboard</Heading>
                   <Text size="s" as="p" className="!text-blue_gray-400">
@@ -61,7 +61,7 @@ export default function DashboardPage() {
                   className="w-[35%] gap-[3px] self-start text-gray-600_01 sm:pr-5"
                 />
               </div>
-              <div className="mb-1.5 flex w-[14%] items-start justify-center gap-1 md:w-full">
+              <div className="mb-1.5 mt-5 flex w-[14%] items-start justify-center gap-1 md:w-full">
                 <Img
                   src="images/img_ellipse_16_39x39.png"
                   alt="circleimage"
@@ -77,20 +77,20 @@ export default function DashboardPage() {
                 </div>
               </div>
             </div>
-            <div className="h-px self-stretch bg-gray-300" />
+            <div className="h-px -mt-7 self-stretch bg-gray-300" />
           </header>
-          <div className="flex items-start self-stretch md:flex-col">
+          <div className="flex fixed items-start self-stretch md:flex-col">
             {/* sidebar navigation section */}
             <Sidebar
               width="241px !important"
               collapsedWidth="80px !important"
               collapsed={collapsed}
-              className="!sticky top-0 flex h-screen flex-col overflow-auto pb-[23px] pr-[23px] md:hidden md:p-5 sm:pb-5 sm:pr-5"
+              className="!sticky relative top-0 flex h-screen flex-col overflow-auto pb-[23px] pr-[23px] md:hidden md:p-5 sm:pb-5 sm:pr-5"
             >
               <Img
                 src="images/img_ak_1_removebg_preview.png"
                 alt="ak1removebg_one"
-                className="h-[105px] w-[45%] self-start object-cover"
+                className="h-[105px] w-[45%] my-5 self-start object-cover"
               />
               <Input
                 shape="round"
@@ -155,8 +155,8 @@ export default function DashboardPage() {
             </Sidebar>
 
             {/* main content section */}
-            <div className="mt-2 flex flex-1 flex-col items-end gap-3 md:self-stretch md:p-5">
-              <div className="mr-4 flex gap-[17px] md:mr-0">
+            <div className="mt-28 flex flex-1 flex-col items-end gap-3 md:self-stretch md:p-5">
+              <div className="mt-7 mr-4 flex gap-[17px] md:mr-0">
                 <Button
                   color="red_500_28"
                   size="lg"
