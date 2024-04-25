@@ -1,9 +1,17 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Text, Heading, Button, Img } from "../../components";
-import Sidebar1 from "../../components/Sidebar1";
+import { Button } from "components/Button1";
+import { Heading } from "components/Heading1";
+import { Text } from "components/Text1";
+import { Img } from "components/Img1";
+import { Input } from "../../components";
+import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
+import { CloseSVG } from "assets/images/close";
 
 export default function TransactionhistoryPage() {
+  const [searchBarValue4, setSearchBarValue4] = React.useState("");
+  const [collapsed, setCollapsed] = React.useState(false);
+
   return (
     <>
       <Helmet>
@@ -17,8 +25,71 @@ export default function TransactionhistoryPage() {
       {/* transaction history section */}
       <div className="flex w-full items-start justify-center gap-[21px] bg-white-A700 md:flex-col">
         {/* sidebar navigation section */}
-        <Sidebar1 className="!sticky top-0 flex h-screen w-[241px] flex-col overflow-auto pb-[23px] pr-[23px] md:hidden md:p-5 sm:pb-5 sm:pr-5" />
-
+        <Sidebar
+              width="241px !important"
+              collapsedWidth="80px !important"
+              collapsed={collapsed}
+              className="!sticky relative top-0 flex h-screen flex-col overflow-auto pb-[23px] pr-[23px] md:hidden md:p-5 sm:pb-5 sm:pr-5"
+            >
+              <Img
+                src="images/img_ak_1_removebg_preview.png"
+                alt="ak1removebg_one"
+                className="h-[105px] w-[45%] my-5 self-start object-cover"
+              />
+              <Input
+                shape="round"
+                name="search"
+                placeholder={`Search`}
+                value={searchBarValue4}
+                onChange={(e: string) => setSearchBarValue4(e)}
+                prefix={
+                  <Img src="images/img_contrast.svg" alt="contrast" className="h-[19px] w-[19px] cursor-pointer" />
+                }
+                suffix={
+                  searchBarValue4?.length > 0 ? (
+                    <CloseSVG onClick={() => setSearchBarValue4("")} height={19} width={19} fillColor="#717171ff" />
+                  ) : null
+                }
+                className="mt-1 w-[90%] gap-[3px] text-gray-600_01 sm:pr-5"
+              />
+              <Menu
+                menuItemStyles={{
+                  button: {
+                    padding: "5px 5px 5px 12px",
+                    alignSelf: "start",
+                    color: "#6f6f6f",
+                    fontWeight: 500,
+                    fontSize: "16px",
+                    gap: "9px",
+                    borderRadius: "4px",
+                    [`&:hover, &.ps-active`]: { color: "#ff3131", backgroundColor: "#ff313135 !important" },
+                  },
+                }}
+                rootStyles={{ ["&>ul"]: { gap: "0.67px" } }}
+                className="mb-[361px] mt-[45px] flex w-full flex-col pb-[15px]"
+              >
+                <MenuItem
+                  icon={<Img src="images/img_mage_dashboard.svg" alt="magedashboard" className="h-[24px] w-[24px]" />}
+                >
+                  Dashboard
+                </MenuItem>
+                <MenuItem icon={<Img src="images/img_user.svg" alt="user_one" className="h-[24px] w-[24px]" />}>
+                  Users
+                </MenuItem>
+                <MenuItem
+                  icon={<Img src="images/img_user_gray_600_02.svg" alt="user_three" className="h-[24px] w-[24px]" />}
+                >
+                  Messages
+                </MenuItem>
+                <MenuItem icon={<Img src="images/img_grid_red_500.svg" alt="grid_one" className="h-[24px] w-[24px]" />}>
+                  Transactions
+                </MenuItem>
+                <MenuItem icon={<Img src="images/img_clock.svg" alt="clock_one" className="h-[24px] w-[24px]" />}>
+                  Log out
+                </MenuItem>
+              </Menu>
+            </Sidebar>
+            
         {/* main content section */}
         <div className="mt-3 flex flex-1 flex-col items-start gap-[52px] md:self-stretch md:p-5 sm:gap-[26px]">
           {/* transaction overview section */}
