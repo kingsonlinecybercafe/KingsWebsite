@@ -3,7 +3,7 @@ import React from "react";
 const shapes = {
   square: "rounded-[0px]",
   circle: "rounded-[50%]",
-  round: "rounded-lg",
+  round: "rounded-[5px]",
 } as const;
 const variants = {
   fill: {
@@ -14,24 +14,18 @@ const variants = {
     purple_500_30: "bg-purple-500_30 text-purple-500_01",
     red_500: "bg-red-500 text-gray-200",
     red_500_23: "bg-red-500_23",
-    red_500_02: "bg-red-500_02 text-white-A700",
-    lime_500: "bg-lime-500 text-gray-900",
-    red_A700: "bg-red-A700 text-gray-50",
   },
   outline: {
     gray_300: "border-gray-300 border border-solid text-gray-700_02",
   },
-  gradient: {
-    red_500_01_red_500_03: "bg-gradient",
-  },
 } as const;
 const sizes = {
-  xl: "h-[64px] px-[35px] text-base",
-  sm: "h-[48px] px-[11px]",
-  md: "h-[52px] px-[35px] text-base",
-  xs: "h-[48px] px-[33px] text-base",
-  lg: "h-[56px] px-[35px] text-base",
+  sm: "h-[24px] px-0.5",
   "2xl": "h-[39px] px-3.5 text-base",
+  lg: "h-[33px] px-3 text-[13px]",
+  xs: "h-[14px] px-0.5 text-[8px]",
+  md: "h-[28px] px-[5px]",
+  xl: "h-[34px] px-[5px]",
 } as const;
 
 type ButtonProps = Omit<
@@ -47,7 +41,6 @@ type ButtonProps = Omit<
     variant: keyof typeof variants;
     size: keyof typeof sizes;
     color: string;
-    href: string;
   }>;
 const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
@@ -56,8 +49,8 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   rightIcon,
   shape,
   variant = "fill",
-  size = "lg",
-  color = "red_500_02",
+  size = "xl",
+  color = "red_500_23",
   ...restProps
 }) => {
   return (

@@ -9,6 +9,10 @@ import SignUp from "pages/SignUp";
 import Userpage from "pages/Userpage";
 import SERVICES from "pages/SERVICES";
 import SignInPage from "pages/SignIn";
+import Transactionhistory from "pages/Transactionhistory";
+import Messages from "pages/Messages";
+import Messagesempty from "pages/Messagesempty";
+import Dashboard from "pages/Dashboard";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
@@ -37,6 +41,22 @@ const ProjectRoutes = () => {
     {
       path: "userpage",
       element: <Userpage />,
+    },
+    {
+      path: "transactionhistory",
+      element: <Transactionhistory />,
+    },
+    {
+      path: "messages",
+      element: <Messages />,
+    },
+    {
+      path: "messagesempty",
+      element: <Messagesempty />,
+    },
+    {
+      path: "dashboard",
+      element: <Dashboard />,
     },
   ]);
 

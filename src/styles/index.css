@@ -26,6 +26,11 @@ input {
 input:focus {
   outline: none;
 }
+.ReactModal__Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 table {
   table-layout: fixed;
 }
