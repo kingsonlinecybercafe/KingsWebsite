@@ -14,7 +14,7 @@ type ReactTableProps<D extends unknown> = {
 };
 
 const sizes = {
-  xs: "p-[9px]",
+  xs: "p-3",
 } as const;
 
 const ReactTable = <D extends unknown>({

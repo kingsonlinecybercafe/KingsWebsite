@@ -13,6 +13,7 @@ import Transactionhistory from "pages/Transactionhistory";
 import Messages from "pages/Messages";
 import Messagesempty from "pages/Messagesempty";
 import Dashboard from "pages/Dashboard";
+import UserinfoPage from "pages/Userinfo";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
@@ -49,6 +50,10 @@ const ProjectRoutes = () => {
     {
       path: "messages",
       element: <Messages />,
+    },
+    {
+      path: "userinfo",
+      element: <UserinfoPage />,
     },
     {
       path: "messagesempty",
