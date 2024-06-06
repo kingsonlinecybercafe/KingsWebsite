@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import { Helmet } from "react-helmet";
 import { CloseSVG } from "../../assets/images";
 import { Text, Heading, Img, SelectBox, Button, Input } from "../../components";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
 import { OptionProps } from "react-select";
+import axios from "components/axios";
 
 const dropDownOptions = [
   { label: "Option1", value: "option1" },
@@ -15,6 +16,27 @@ export default function DashboardPage() {
   const [searchBarValue3, setSearchBarValue3] = React.useState("");
   const [collapsed, setCollapsed] = React.useState(false);
   const [searchBarValue4, setSearchBarValue4] = React.useState("");
+  const [users, setUsers] = useState("")
+  const [sales,setSales] = useState("")
+  const [orders,setOrders] = useState("")
+  const [revenues,setRevenues] = useState()
+
+useEffect(() => {
+  axios.get("/users").then(res => {
+    setUsers(res.data)
+    })
+     axios.get("/sales").then(res => {
+    setSales(res.data)
+    })
+     axios.get("/revenues").then(res => {
+    setOrders(res.data)
+    })
+     axios.get("/orders").then(res => {
+    setRevenues(res.data)
+    })
+},[])
+
+
 
   //use this function to collapse/expand the sidebar
   //function collapseSidebar() {

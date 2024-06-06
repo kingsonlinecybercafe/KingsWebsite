@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Text, Button, CheckBox, Input, Heading, Img } from "../../components";
 import { Link } from "react-router-dom";
 
 export default function SignUpPage() {
+const [email,setEmail] = useState("")
+const [password,setPassword] = useState("")
+const [confPass, setconfPassword] = useState("")
+const [agreement, setAgreement] = useState(false)
+/*
+const register = (e) => {
+  e.preventDefault();
+  if(password === confPass) {
+    await axios.post("/user",{
+      fullname : "",
+      number : "",
+      username : "",
+      email : email, 
+      password : password, 
+      timestamp: new Date().toUTCString(),
+      received: true
+    })
+}
+setEmail("")
+setPassword("")
+setconfPassword("")
+setAgreement(false)
+}
+*/
   return (
     <>
       <Helmet>
@@ -25,11 +49,9 @@ export default function SignUpPage() {
         <div className="w-[43%] md:w-full">
           {/* signup form section */}
           <div className="my-[35px] flex flex-col items-start">
-            <a href="#">
               <Heading size="md" as="h1" className="tracking-[0.08px] !text-gray-800">
                 Sign up
               </Heading>
-            </a>
 
             {/* welcome message section */}
             <div className="mt-[33px] flex flex-col items-start gap-[7px] pt-1">
@@ -45,14 +67,15 @@ export default function SignUpPage() {
             <div className="mt-8 flex flex-col items-start gap-1 self-stretch">
               <div className="flex">
                 <Text size="2xl" as="p" className="!font-medium !text-blue_gray-400">
-                  Email
+                  Email {email}
                 </Text>
               </div>
               <Input
                 color="gray_100"
                 size="lg"
                 type="email"
-                name="email"
+                value = {email}
+                onChange = {(e) => { setEmail(e.target.value)}}
                 placeholder={`bayur453@gmail.com`}
                 className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
               />
@@ -69,7 +92,8 @@ export default function SignUpPage() {
                 color="gray_100"
                 size="md"
                 type="password"
-                name="password"
+                value = {password}
+                onChange = {  e => setPassword(e.target.value) }
                 placeholder={`...............`}
                 className="ml-[3px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
               />
@@ -85,7 +109,8 @@ export default function SignUpPage() {
               color="gray_100"
               size="md"
               type="password"
-              name="confirmpassword"
+              value = {confPass}
+              onChange = {(e) => { setconfPassword(e.target.value)}}
               placeholder={`...............`}
               className="ml-[3px] mt-[9px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
             />
@@ -95,6 +120,7 @@ export default function SignUpPage() {
               name="checkmark"
               label="I agree to the terms of services"
               id="checkmark"
+              onChange = {(e) => { setAgreement(!agreement)}}
               className="mt-[26px] px-px pb-0.5 pt-2 text-left text-sm font-medium tracking-[0.04px] text-blue_gray-400"
             />
 

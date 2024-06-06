@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Text, Button, CheckBox, Input, Heading, Img } from "../../components";
 import { Link } from "react-router-dom";
 
 export default function SignInPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [savePass, setSavePass] = useState(false);
+  const login = async (e) => {
+    e.preventDefault()
+  /*  await axios.post('/user',{
+   fullname : "",
+   number : "",
+   username : "",
+   email : email, 
+   password : password, 
+   timestamp: new Date().toUTCString(),
+   received: true
+})*/
+    setEmail("")
+    setPassword("")
+    setSavePass(false)
+}
+
+
   return (
     <>
       <Helmet>
@@ -52,7 +72,7 @@ export default function SignInPage() {
                 color="gray_100"
                 size="lg"
                 type="email"
-                name="email"
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder={`bayur453@gmail.com`}
                 className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
               />
@@ -69,7 +89,7 @@ export default function SignInPage() {
                 color="gray_100"
                 size="md"
                 type="password"
-                name="password"
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder={`...............`}
                 className="ml-[3px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
               />
@@ -80,12 +100,13 @@ export default function SignInPage() {
               name="checkmark"
               label="Save Password"
               id="checkmark"
+              onChange={(e) => setSavePass(!savePass)}
               className="mt-[26px] px-px pb-0.5 pt-2 text-left text-sm font-medium tracking-[0.04px] text-blue_gray-400"
             />
 
             {/* create account button section */}
-            <Button size="xl" shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5">
-              <Link to="/userpage">
+            <Button size="xl"  shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5">
+              <Link to="/userpage"  >
                 Log In
               </Link>
             </Button>
