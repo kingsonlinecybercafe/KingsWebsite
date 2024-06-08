@@ -2,32 +2,37 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Text, Button, CheckBox, Input, Heading, Img } from "../../components";
 import { Link } from "react-router-dom";
+import axios from "components/axios";
 
 export default function SignUpPage() {
 const [email,setEmail] = useState("")
 const [password,setPassword] = useState("")
 const [confPass, setconfPassword] = useState("")
 const [agreement, setAgreement] = useState(false)
-/*
-const register = (e) => {
+const [fullname,setFullname] = useState("")
+const [number,setnumber] = useState("")
+const [username,setUsername] = useState("")
+const register = async (e) => {
   e.preventDefault();
   if(password === confPass) {
-    await axios.post("/user",{
-      fullname : "",
-      number : "",
+    console.log(email,password,confPass, new Date().toUTCString())
+   
+   const req  =  await axios.post("/user",{
+      fullname : fullname,
+      number : number,
       username : "",
       email : email, 
       password : password, 
       timestamp: new Date().toUTCString(),
-      received: true
     })
-}
+    
 setEmail("")
 setPassword("")
 setconfPassword("")
 setAgreement(false)
 }
-*/
+}
+
   return (
     <>
       <Helmet>
@@ -62,20 +67,35 @@ setAgreement(false)
                 Register as member to experience
               </Text>
             </div>
+              {/* Fullname input section */}
+              <div className="mt-8 flex flex-col items-start gap-1 self-stretch">
+              <div className="flex">
+                <Text size="2xl" as="p" className="!font-medium !text-blue_gray-400">
+                  Fullname
+                </Text>
+              </div>
+              <Input
+                color="gray_100"
+                size="lg"
+                type="text"
+                onChange = {(e) => { setFullname(e)}}
+                placeholder={`Adeola Akintunde...`}
+                className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
+              />
+            </div>
 
             {/* email input section */}
             <div className="mt-8 flex flex-col items-start gap-1 self-stretch">
               <div className="flex">
                 <Text size="2xl" as="p" className="!font-medium !text-blue_gray-400">
-                  Email {email}
+                  Email
                 </Text>
               </div>
               <Input
                 color="gray_100"
                 size="lg"
                 type="email"
-                value = {email}
-                onChange = {(e) => { setEmail(e.target.value)}}
+                onChange = {(e) => { setEmail(e)}}
                 placeholder={`bayur453@gmail.com`}
                 className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
               />
@@ -92,8 +112,7 @@ setAgreement(false)
                 color="gray_100"
                 size="md"
                 type="password"
-                value = {password}
-                onChange = {  e => setPassword(e.target.value) }
+                onChange = {  (e) => setPassword(e) } 
                 placeholder={`...............`}
                 className="ml-[3px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
               />
@@ -102,19 +121,33 @@ setAgreement(false)
             {/* confirm password section */}
             <div className="mt-[18px] flex">
               <Text size="2xl" as="p" className="!font-medium !text-blue_gray-400">
-                Confirm Password
+                Confirm Password 
               </Text>
             </div>
             <Input
               color="gray_100"
               size="md"
               type="password"
-              value = {confPass}
-              onChange = {(e) => { setconfPassword(e.target.value)}}
+              onChange = {(e) => { setconfPassword(e) }}
               placeholder={`...............`}
               className="ml-[3px] mt-[9px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
             />
-
+  {/* Phone Number input section */}
+  <div className="mt-8 flex flex-col items-start gap-1 self-stretch">
+              <div className="flex">
+                <Text size="2xl" as="p" className="!font-medium !text-blue_gray-400">
+                  Phonenumber
+                </Text>
+              </div>
+              <Input
+                color="gray_100"
+                size="lg"
+                type="text"
+                onChange = {(e) => { setnumber(e)}}
+                placeholder={`09123456789`}
+                className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
+              />
+            </div>
             {/* terms agreement section */}
             <CheckBox
               name="checkmark"
@@ -125,8 +158,8 @@ setAgreement(false)
             />
 
             {/* create account button section */}
-            <Button size="xl" shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5">
-              <Link to="/userpage">
+            <Button size="xl"  shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5"   >
+              <Link to="/userpage"  onClick={register}>
                 Create Account
               </Link>
             </Button>

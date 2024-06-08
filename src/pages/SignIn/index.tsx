@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Text, Button, CheckBox, Input, Heading, Img } from "../../components";
 import { Link } from "react-router-dom";
+import axios from "components/axios";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [savePass, setSavePass] = useState(false);
   const login = async (e) => {
-    e.preventDefault()
-  /*  await axios.post('/user',{
-   fullname : "",
-   number : "",
-   username : "",
+    console.log(email,password, new Date().toUTCString())
+/*
+  await axios.get('/user',{
    email : email, 
    password : password, 
-   timestamp: new Date().toUTCString(),
-   received: true
-})*/
+})
     setEmail("")
     setPassword("")
-    setSavePass(false)
+    setSavePass(false)*/
 }
 
 
@@ -72,7 +69,7 @@ export default function SignInPage() {
                 color="gray_100"
                 size="lg"
                 type="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange  ={(e) => setEmail(e) }
                 placeholder={`bayur453@gmail.com`}
                 className="self-stretch rounded-[5px] tracking-[0.03px] !text-gray-500 sm:px-5"
               />
@@ -89,7 +86,7 @@ export default function SignInPage() {
                 color="gray_100"
                 size="md"
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange ={(e) => setPassword(e)}
                 placeholder={`...............`}
                 className="ml-[3px] self-stretch rounded-[5px] tracking-[0.06px] md:ml-0 sm:px-5"
               />
@@ -105,8 +102,8 @@ export default function SignInPage() {
             />
 
             {/* create account button section */}
-            <Button size="xl"  shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5">
-              <Link to="/userpage"  >
+            <Button size="xl" shape="round" className="mt-[38px] w-full font-bold tracking-[0.20px] sm:px-5" >
+              <Link to="/userpage" onClick={login}  >
                 Log In
               </Link>
             </Button>

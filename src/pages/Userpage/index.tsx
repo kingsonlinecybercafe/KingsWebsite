@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import { Helmet } from "react-helmet";
 import { CloseSVG } from "../../assets/images";
 import { Img, Text, CheckBox, Input } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
-
+import axios from "components/axios";
+/*
 const tableData = [
   {
     rowname: "Omitoyin David ",
@@ -45,16 +46,36 @@ const tableData = [
     status: "Active",
   },
 ];
-
-type TableRowType = { rowname: string; phonenumber: string; emailaddress?: string; status?: string };
+*/
+type TableRowType = { name: string; phonenumber: string; email?: string; status?: string };
 
 export default function UserpagePage() {
-  const [searchBarValue7, setSearchBarValue7] = React.useState("");
+  const [users,setUsers] = useState([]);
+useEffect( ()=>{
+async function getUsers(){
+  const req = await axios.get("/user");
+  setUsers(req.data.data)
+
+}
+getUsers()
+
+} ,[])
+
+const [searchBarValue7, setSearchBarValue7] = React.useState("");
+
+const findUser = async () => {
+console.log(searchBarValue7)
+  const req = await axios.get("/eachuser/"+searchBarValue7)
+  setUsers(req.data)
+
+}
+
+
   const [collapsed, setCollapsed] = React.useState(false);
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper<TableRowType>();
     return [
-      tableColumnHelper.accessor("rowname", {
+      tableColumnHelper.accessor("name", {
         cell: (info) => (
           <div className="flex flex-1 items-end md:self-stretch">
             <div className="mb-2.5 ml-2.5 h-[20px] w-[20px] rounded border border-solid border-gray-300" />
@@ -68,7 +89,7 @@ export default function UserpagePage() {
                 {info?.getValue?.()}
               </Text>
               <Text size="s" as="p" className="ml-[3px] !text-gray-600_03 md:ml-0">
-                David@ayomde
+              {info?.getValue?.()}
               </Text>
             </div>
           </div>
@@ -98,7 +119,7 @@ export default function UserpagePage() {
         ),
         meta: { width: "235px" },
       }),
-      tableColumnHelper.accessor("emailaddress", {
+      tableColumnHelper.accessor("email", {
         cell: (info) => (
           <Text size="xl" as="p" className="!text-gray-600_01">
             {info?.getValue?.()}
@@ -167,7 +188,11 @@ export default function UserpagePage() {
                 name="search"
                 placeholder={`Search`}
                 value={searchBarValue7}
-                onChange={(e: string) => setSearchBarValue7(e)}
+                onChange={ (e: string) => { 
+                  setSearchBarValue7(e)
+                  console.log(searchBarValue7)
+                  findUser()
+                } }
                 prefix={
                   <Img src="images/img_contrast.svg" alt="contrast" className="h-[19px] w-[19px] cursor-pointer" />
                 }
@@ -221,7 +246,7 @@ export default function UserpagePage() {
                 <div className="flex w-[22%] gap-[17px] md:w-full">
                   <div className="flex w-full items-center gap-[7px] rounded-[3px] bg-red-500_28 p-[7px]">
                     <Img src="images/img_grid_red_500.svg" alt="grid_three" className="ml-1 h-[18px] w-[18px]" />
-                    <Text size="md" as="p" className="!text-red-500_02">
+                    <Text size="md" as="p" className="!text-red-500_02" onClick = { () => console.log(users)}>
                       Filter
                     </Text>
                   </div>
@@ -251,7 +276,7 @@ export default function UserpagePage() {
                   headerProps={{ className: "md:flex-col" }}
                   rowDataProps={{ className: "md:flex-col" }}
                   columns={tableColumns}
-                  data={tableData}
+                  data= {users}
                 />
               </div>
             </div>

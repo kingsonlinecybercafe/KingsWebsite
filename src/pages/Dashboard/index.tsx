@@ -21,19 +21,23 @@ export default function DashboardPage() {
   const [orders,setOrders] = useState("")
   const [revenues,setRevenues] = useState()
 
-useEffect(() => {
-  axios.get("/users").then(res => {
-    setUsers(res.data)
+useEffect( () => {
+ async function fetchData() {
+ await axios.get("/users").then(res => {
+    setUsers(res.data.data)
     })
-     axios.get("/sales").then(res => {
-    setSales(res.data)
+    await axios.get("/sales").then(res => {
+      console.log(res.data.data)
+    setSales(res.data.data)
     })
-     axios.get("/revenues").then(res => {
-    setOrders(res.data)
+await     axios.get("/revenues").then(res => {
+    setOrders(res.data.data)
     })
-     axios.get("/orders").then(res => {
-    setRevenues(res.data)
+   await  axios.get("/orders").then(res => {
+    setRevenues(res.data.data)
     })
+  }
+  fetchData()
 },[])
 
 
@@ -228,7 +232,7 @@ useEffect(() => {
                       </Button>
                     </div>
                     <Heading size="s" as="h2" className="ml-[5px] !text-blue_gray-900 md:ml-0">
-                      #126,700.08
+                     {sales}
                     </Heading>
                     <div className="ml-[5px] mt-[13px] flex items-center justify-between gap-5 self-stretch md:ml-0">
                       <Heading size="xs" as="h3" className="self-end !text-gray-500_03">
@@ -265,7 +269,7 @@ useEffect(() => {
                       </Button>
                     </div>
                     <Heading size="s" as="h5" className="ml-[5px] !text-blue_gray-900 md:ml-0">
-                      #3,126,700.08
+                      {revenues}
                     </Heading>
                     <div className="ml-[5px] mt-[13px] flex items-center justify-between gap-5 self-stretch md:ml-0">
                       <Heading size="xs" as="h6" className="self-end !text-gray-500_03">
@@ -301,7 +305,7 @@ useEffect(() => {
                       </Button>
                     </div>
                     <Heading size="s" as="p" className="ml-[5px] !text-blue_gray-900 md:ml-0">
-                      432,704
+                      {users}
                     </Heading>
                     <div className="ml-[5px] mt-[13px] flex items-center justify-between gap-5 self-stretch md:ml-0">
                       <Heading size="xs" as="p" className="self-end !text-gray-500_03">
@@ -337,7 +341,7 @@ useEffect(() => {
                       </Button>
                     </div>
                     <Heading size="s" as="p" className="ml-[5px] !text-blue_gray-900 md:ml-0">
-                      32,704
+                     {orders}
                     </Heading>
                     <div className="ml-[5px] mt-[13px] flex items-center justify-between gap-5 self-stretch md:ml-0">
                       <Heading size="xs" as="p" className="self-end !text-gray-500_03">

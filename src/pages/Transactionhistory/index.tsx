@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { Helmet } from "react-helmet";
 import { Button } from "components/Button1";
 import { Heading } from "components/Heading1";
@@ -7,11 +7,19 @@ import { Img } from "components/Img1";
 import { Input } from "../../components";
 import { MenuItem, Menu, Sidebar } from "react-pro-sidebar";
 import { CloseSVG } from "assets/images/close";
+import axios from "components/axios";
 
 export default function TransactionhistoryPage() {
   const [searchBarValue4, setSearchBarValue4] = React.useState("");
   const [collapsed, setCollapsed] = React.useState(false);
-
+  const [transaction,setTransaction] = useState([])
+  useEffect( () => {
+async function transHis() {
+ const req = await axios.get("/transaction")
+ setTransaction(req.data.data)
+}
+transHis()
+  },[])
   return (
     <>
       <Helmet>
@@ -239,6 +247,8 @@ export default function TransactionhistoryPage() {
               </div>
               <div className="h-px bg-gray-300" />
             </div>
+
+            
           </div>
         </div>
       </div>
