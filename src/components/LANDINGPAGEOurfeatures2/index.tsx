@@ -149,7 +149,7 @@ export default function LANDINGPAGEOurfeatures2({
             </Link>
           </Button>
         </div>
-        <Img src="images/img_Rectangle_17.png" alt="image_two" className="h-[462px] w-[33%] object-cover md:w-full" />
+        <Img src="images/img_Rectangle_17.png" alt="image_two" className="h-[462px] w-[33%] object-cover md:flex-1" />
       </div>
     </div>
   );

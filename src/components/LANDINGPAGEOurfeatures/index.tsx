@@ -29,7 +29,7 @@ export default function LANDINGPAGEOurfeatures({
 }: Props) {
   return (
     <div {...props}>
-      <div className="flex items-center gap-2 self-stretch md:flex-col">
+      <div className="flex items-center gap-1 self-stretch md:flex-col">
         <div className="flex w-[33%] flex-col items-center gap-[167px] md:w-full md:gap-[125px] sm:gap-[83px]">
           <div className="self-stretch">
             <Heading size="md" as="h1" className="text-center tracking-[0.08px]">
@@ -39,7 +39,7 @@ export default function LANDINGPAGEOurfeatures({
               {matchyourideatext}
             </Text>
           </div>
-          <Button shape="round" className="min-w-[225px] font-bold tracking-[0.20px] sm:px-5">
+          <Button shape="round" className="min-w-[225px] font-bold tracking-[0.20px] sm:px-1">
             <Link to="/signup">
               {sendARequest}
             </Link>

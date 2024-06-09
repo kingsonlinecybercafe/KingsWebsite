@@ -28,25 +28,25 @@ export default function LANDINGPAGEPage() {
             <Img
               src="images/img_ak_1_removebg_preview.png"
               alt="ak1removebg_one"
-              className="h-[98px] w-[11%] object-cover md:w-full"
+              className="h-[98px] w-[11%] object-cover lg:w-full"
             />
             <div className="flex p-[17px]">
               <ul className="flex flex-wrap self-start">
-                <li>
+                <li className="md:flex-1" >
                   <a href="/aboutus">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       About us
                     </Text>
                   </a>
                 </li>
-                <li>
+                <li className="md:flex-1">
                   <a href="/services" className="ml-16">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Services
                     </Text>
                   </a>
                 </li>
-                <li>
+                <li className="md:flex-1">
                   <a href="/contact" className="ml-[57px]">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Contact us
