@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { Button, Img, Text } from "../../components";
 import Footer from "../../components/Footer";
 import LANDINGPAGEAboutus2 from "../../components/LANDINGPAGEAboutus2";
@@ -33,25 +34,25 @@ export default function LANDINGPAGEPage() {
             <div className="flex p-[17px]">
               <ul className="flex flex-wrap self-start">
                 <li className="md:flex-1" >
-                  <a href="/aboutus">
+                  <Link to="/aboutus">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       About us
                     </Text>
-                  </a>
+                  </Link>
                 </li>
                 <li className="md:flex-1">
-                  <a href="/services" className="ml-16">
+                  <Link to="/services" className="ml-16">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Services
                     </Text>
-                  </a>
+                  </Link>
                 </li>
                 <li className="md:flex-1">
-                  <a href="/contact" className="ml-[57px]">
+                  <Link to="/contact" className="ml-[57px]">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Contact us
                     </Text>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

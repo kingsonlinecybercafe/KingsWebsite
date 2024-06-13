@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { Button, Img, Text, Heading } from "../../components";
 import Footer from "../../components/Footer";
-
+import Home from "pages/Home";
 export default function ABOUTUSPage() {
   return (
     <>
@@ -17,35 +18,36 @@ export default function ABOUTUSPage() {
       {/* about us page section */}
       {/* header section */}
       <div className="w-full bg-white-A700">
-        <header className="flex items-center justify-center bg-white-A700 shadow-xs">
+
+      <header className="flex items-center justify-center bg-white-A700 shadow-xs">
           <div className="container-xs flex items-center justify-between gap-5 md:flex-col md:p-5">
             <Img
               src="images/img_ak_1_removebg_preview.png"
               alt="ak1removebg_one"
-              className="h-[98px] w-[11%] object-cover md:w-full"
+              className="h-[98px] w-[11%] object-cover lg:w-full"
             />
             <div className="flex p-[17px]">
               <ul className="flex flex-wrap self-start">
-                <li>
-                  <a href="/aboutus">
+                <li className="md:flex-1" >
+                  <Link to="/aboutus">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       About us
                     </Text>
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a href="/services" className="ml-16">
+                <li className="md:flex-1">
+                  <Link to="/services" className="ml-16">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Services
                     </Text>
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a href="/contact" className="ml-[57px]">
+                <li className="md:flex-1">
+                  <Link to="/contact" className="ml-[57px]">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Contact us
                     </Text>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -54,7 +56,6 @@ export default function ABOUTUSPage() {
             </Button>
           </div>
         </header>
-
         {/* about us intro section */}
         <div className="flex w-full flex-col items-center bg-white-A700">
           <div className="flex flex-col items-end self-stretch">

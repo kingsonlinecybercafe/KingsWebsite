@@ -167,10 +167,12 @@ setAgreement(false)
             {/* signin redirect section */}
             <div className="ml-[5px] mt-[57px] flex md:ml-0">
               <Text as="p" className="!font-medium tracking-[0.02px] !text-blue_gray-400">
-                <a href="/signin">
+              
                   <span className="text-blue_gray-400">Already a member ?&nbsp;</span>
+                 <Link to="/signin">
                   <span className="text-red_500_01">Sign in</span>
-                </a>
+                  </Link>
+             
               </Text>
             </div>
           </div>

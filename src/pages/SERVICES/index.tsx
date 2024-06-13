@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { Text, Button, Input, Img, Heading, TextArea, SelectBox } from "../../components";
 import LANDINGPAGEOurfeatures2 from "components/LANDINGPAGEOurfeatures2";
 
@@ -29,43 +30,42 @@ export default function SERVICESPage() {
             <div className="w-full bg-white-A700">
                 {/* header section */}
                 <header className="flex items-center justify-center bg-white-A700 shadow-xs">
-                    <div className="container-xs flex items-center justify-between gap-5 md:flex-col md:p-5">
-                        <Img
-                            src="images/img_ak_1_removebg_preview.png"
-                            alt="ak1removebg_one"
-                            className="h-[98px] w-[11%] object-cover md:w-full"
-                        />
-                        <div className="flex p-[17px]">
-                            <ul className="flex flex-wrap self-start">
-                                <li>
-                                    <a href="/aboutus">
-                                        <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
-                                            About us
-                                        </Text>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/services" className="ml-16">
-                                        <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
-                                            Services
-                                        </Text>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/contact" className="ml-[57px]">
-                                        <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
-                                            Contact us
-                                        </Text>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <Button size="md" shape="round" className="min-w-[286px] font-bold tracking-[0.20px] sm:px-5">
-                            Download App
-                        </Button>
-                    </div>
-                </header>
-
+          <div className="container-xs flex items-center justify-between gap-5 md:flex-col md:p-5">
+            <Img
+              src="images/img_ak_1_removebg_preview.png"
+              alt="ak1removebg_one"
+              className="h-[98px] w-[11%] object-cover lg:w-full"
+            />
+            <div className="flex p-[17px]">
+              <ul className="flex flex-wrap self-start">
+                <li className="md:flex-1" >
+                  <Link to="/aboutus">
+                    <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
+                      About us
+                    </Text>
+                  </Link>
+                </li>
+                <li className="md:flex-1">
+                  <Link to="/services" className="ml-16">
+                    <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
+                      Services
+                    </Text>
+                  </Link>
+                </li>
+                <li className="md:flex-1">
+                  <Link to="/contact" className="ml-[57px]">
+                    <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
+                      Contact us
+                    </Text>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <Button size="md" shape="round" className="min-w-[286px] font-bold tracking-[0.20px] sm:px-5">
+              Download App
+            </Button>
+          </div>
+        </header>
                 {/* order section */}
                 <div className="w-full bg-white-A700">
                     <div className="flex flex-col items-center gap-24 md:gap-[72px] sm:gap-12">
