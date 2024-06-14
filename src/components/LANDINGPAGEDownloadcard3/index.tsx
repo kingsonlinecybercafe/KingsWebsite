@@ -28,7 +28,7 @@ export default function LANDINGPAGEDownloadcard3({
           </div>
         </div>
         <div className="relative h-[568px] w-[45%] md:w-full">
-          <div className="absolute left-0 right-0 top-[0.00px] m-auto h-[520px] w-full rounded-[260px] bg-cyan-600" />
+          <div className="relative h-[568px] w-[45%] md:w-full left-0 right-0 top-[0.00px] m-auto h-[520px] w-full rounded-[260px] bg-cyan-600" />
           <div className="absolute bottom-[0.00px] left-[21.00px] m-auto flex w-[86%] items-start sm:relative sm:flex-col">
             <div className="flex flex-1 items-start sm:self-stretch">
               <Img

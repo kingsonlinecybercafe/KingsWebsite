@@ -30,7 +30,7 @@ export default function LANDINGPAGEOurfeatures({
   return (
     <div {...props}>
       <div className="flex items-center gap-1 self-stretch md:flex-col">
-        <div className="flex w-[33%] flex-col items-center gap-[167px] md:w-full md:gap-[125px] sm:gap-[83px]">
+        <div className="flex w-[33%] flex-col items-center gap-[167px] md:mb-5 md:w-full md:gap-[125px] sm:gap-[83px]">
           <div className="self-stretch">
             <Heading size="md" as="h1" className="text-center tracking-[0.08px]">
               {graphicsdesigntext}
@@ -46,7 +46,8 @@ export default function LANDINGPAGEOurfeatures({
           </Button>
         </div>
         <Img src="images/img_rectangle_14.png" alt="image" className="h-[462px] w-[33%] object-cover md:w-full" />
-        <div className="flex w-[33%] flex-col items-center gap-[167px] md:w-full md:gap-[125px] sm:gap-[83px]">
+        <div className="flex w-[33%] flex-col items-center gap-[167px] md:mb-5 md:w-full md:gap-[125px] sm:gap-[83px]">
+
           <div className="self-stretch">
             <Heading size="md" as="h2" className="text-center tracking-[0.08px]">
               {photocopytext}
@@ -68,7 +69,8 @@ export default function LANDINGPAGEOurfeatures({
           alt="image_one"
           className="h-[462px] w-[33%] object-cover md:w-full"
         />
-        <div className="flex w-[34%] flex-col items-center gap-[167px] md:w-full md:gap-[125px] sm:gap-[83px]">
+        <div className="flex w-[34%] flex-col items-center gap-[167px] md:mb-5 md:w-full md:gap-[125px] sm:gap-[83px]">
+
           <div className="flex flex-col items-center gap-[5px] self-stretch">
             <Heading size="md" as="h2" className="text-center tracking-[0.08px]">
               {resultcheckingtext}

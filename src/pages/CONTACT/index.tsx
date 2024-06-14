@@ -29,30 +29,30 @@ export default function CONTACTPage() {
       <div className="w-full bg-white-A700">
         {/* header section */}
         <header className="flex items-center justify-center bg-white-A700 shadow-xs">
-          <div className="container-xs flex items-center justify-between gap-5 md:flex-col md:p-5">
+          <div className="container-xs flex items-center justify-between gap-5 md:gap-3 md:flex-col md:p-5">
             <Img
               src="images/img_ak_1_removebg_preview.png"
               alt="ak1removebg_one"
-              className="h-[98px] w-[11%] object-cover lg:w-full"
+              className="h-[98px] md:h-[58px] w-[11%] object-cover lg:w-full"
             />
-            <div className="flex p-[17px]">
+            <div className="flex p-[17px] md:p-[0]">
               <ul className="flex flex-wrap self-start">
-                <li className="md:flex-1" >
+                <li className="md:flex-0" >
                   <Link to="/aboutus">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       About us
                     </Text>
                   </Link>
                 </li>
-                <li className="md:flex-1">
-                  <Link to="/services" className="ml-16">
+                <li className="md:flex-0">
+                  <Link to="/services" className="ml-16 md:ml-5">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Services
                     </Text>
                   </Link>
                 </li>
-                <li className="md:flex-1">
-                  <Link to="/contact" className="ml-[57px]">
+                <li className="md:flex-0">
+                  <Link to="/contact" className="ml-16 md:ml-5">
                     <Text as="p" className="text-center tracking-[0.08px] !text-gray-900">
                       Contact us
                     </Text>

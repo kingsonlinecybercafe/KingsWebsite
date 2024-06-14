@@ -71,7 +71,7 @@ export default function LANDINGPAGEWhykingsapp({
               </Text>
             </div>
           </div>
-          <div className="relative h-[620px] w-[33%] md:w-full">
+          <div className="relative h-[620px] w-[33%] md:w-full hidden lg:block">
             <Img
               src="images/img_buttons.svg"
               alt="buttons_three"
@@ -91,6 +91,11 @@ export default function LANDINGPAGEWhykingsapp({
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="flex justify-center relative h-full w-full block lg:hidden">
+            <div>
+              <Img src="images/phone.png" alt="phone_image" className="h-full w-[350px] object-cover" />
             </div>
           </div>
           <div className="flex w-[24%] flex-col gap-4 p-2.5 md:w-full">
